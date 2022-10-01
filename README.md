@@ -1,0 +1,11 @@
+# Audio Responsive Lights with Raspberry Pi
+
+## Componenets used:
+
+### Notes:
+#### Idea:
+My idea is to make the LEDs in a WS2812B LED strip (60 LEDs, 1 metre in length) respond to the sound around it (songs, music, etc.). I used Raspberry Pi 4 to control the LED strip. I have taped the LED strip around a bottle, 12 LED's per row and 5 rows. I want to explore different patterns that I can create using the LED strip. And I would like to fine tune the decibel/sound intensity values for which a change in lighting would be pleasant. This is a project that will get better with time, so here are my notes for it, I'll mention it here whenever a change is made. 
+#### September 28, 2022
+Trial one of using LED strip with pi. There were some troubles I ran into while soldering, but finally the soldering was done. And I tried out some simple patterns I tested out coding for. They are inside the folder `simple` in the repo.
+#### October 1, 2022
+I came to know that the 3.5mm jack in Raspberry pi is only for input and not for output. So for now I have settled with using laptop for recording sound intensity values and sending it to my pi through socket programming. The pi is the server and my laptop is the client. As of right now they are in the same network and their IP addresses are hard coded, which could be improved in the future. 
