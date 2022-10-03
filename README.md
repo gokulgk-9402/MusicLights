@@ -22,3 +22,6 @@ One of the sample results is there in the repo. It was my light's response to th
 Download [this video](https://github.com/gokulgk-9402/MusicLights/blob/main/SampleVids/pattern2_Shape_Of_You.mp4) to see the lights reacting with sound.
 
 ![](https://github.com/gokulgk-9402/MusicLights/blob/main/SampleVids/pattern2_Shape_Of_You.gif)
+
+#### October 3, 2022
+Today, I tried creating newer patterns. Tried making letters, but it was quite difficult. But I have written a program to turn on LED's one by one, so I know which numbered LED is needed for which pattern/letter I am planning to use. This can be improved in the future with an on/off argument. And I have written a code for a hexagonal pattern which can be used in the future for another way to visualize the sound.
