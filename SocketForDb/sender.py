@@ -62,7 +62,7 @@ if __name__ == "__main__":
                     # print(" ")
             prev = db
             # iteration += 1
-            send(f"!DB {db * 0.7}")
+            send(f"!DB {db * 0.6}")
             time.sleep(0.01)
 
     stream.stop_stream()
