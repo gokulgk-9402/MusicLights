@@ -25,3 +25,6 @@ Download [this video](https://github.com/gokulgk-9402/MusicLights/blob/main/Samp
 
 #### October 3, 2022
 Today, I tried creating newer patterns. Tried making letters, but it was quite difficult. But I have written a program to turn on LED's one by one, so I know which numbered LED is needed for which pattern/letter I am planning to use. This can be improved in the future with an on/off argument. And I have written a code for a hexagonal pattern which can be used in the future for another way to visualize the sound.
+
+#### October 5, 2022
+Got the USB mic for Raspberry Pi, so now I don't need to use socket programming to send decibel values to pi, instead record decibel values using that itself and control the lights. Also now I can use [pm2](https://pm2.keymetrics.io/) to make my code run indefinitely and run it automatically on startup of the pi. The codes inside the folder `mic-to-pi` are for that direct use of mic with pi. 
