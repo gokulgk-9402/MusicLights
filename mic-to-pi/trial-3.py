@@ -4,6 +4,8 @@ from math import log10
 import audioop  
 from rpi_ws281x import *
 
+maximum = 8
+
 
 LED_COUNT = 60
 LED_PIN = 18
@@ -24,18 +26,18 @@ mem = {
 }
 
 colors = {
-    1: Color(0, 20, 20),
-    2: Color(0, 20, 0),
-    3: Color(20, 20, 0),
-    4: Color(20, 0, 0)
+    1: Color(0, maximum, maximum),
+    2: Color(0, maximum, 0),
+    3: Color(maximum, maximum, 0),
+    4: Color(maximum, 0, 0)
 }
 
 
 decibels = {
     1: -25,
     2: -20,
-    3: -13,
-    4: -10,
+    3: -16,
+    4: -13,
 }
 
 
@@ -60,6 +62,15 @@ stream = p.open(format=p.get_format_from_width(WIDTH),
                 output=False,
                 stream_callback=callback)
 
+for _ in range(5):
+    for i in range(LED_COUNT):
+        strip.setPixelColor(i, Color(50, 50, 50))
+    strip.show()
+    time.sleep(0.1)
+    for i in range(LED_COUNT):
+        strip.setPixelColor(i, Color(0, 0, 0))
+    strip.show()
+
 stream.start_stream()
 
 while stream.is_active(): 
@@ -68,13 +79,14 @@ while stream.is_active():
             strip.setPixelColor(i, Color(0, 0, 0))
         strip.show()
         db = 20 * log10(rms)
+        db *= 0.5
         for i in range(1, 5):
             if db > decibels[i]:
                 for led in mem[i]:
                     strip.setPixelColor(led, colors[i])
                 strip.show()
 
-    time.sleep(0.02)
+    time.sleep(0.05)
 
 stream.stop_stream()
 stream.close()
