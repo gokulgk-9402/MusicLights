@@ -36,6 +36,7 @@ def matrix_show(msg):
 
 def handle_client(conn, addr):
     print(f"Client - {addr} connected.")
+    matrix_show("Application connected!")
 
     connected = True
     while connected:
@@ -46,6 +47,7 @@ def handle_client(conn, addr):
         if message == DC_MSG:
             connected = False
             print(f"{addr} Disconnected!")
+            matrix_show("Application disconnected!")
         else:
             # print(f"{addr}: {message}")
             cmd,data = message.split()
