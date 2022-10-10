@@ -9,9 +9,6 @@ import sys
 f = open("data.json")
 data = json.load(f)
 
-if data['status'] == 'off':
-    sys.exit()
-
 maximum = data['brightness']
 sens = data['sens']
 
@@ -71,8 +68,10 @@ stream = p.open(format=p.get_format_from_width(WIDTH),
                 stream_callback=callback)
 
 if __name__ == "__main__":
+    if data['status'] == 'off':
+        quit()
 
-    for _ in range(5):
+    for _ in range(3):
         for i in range(LED_COUNT):
             strip.setPixelColor(i, Color(50, 50, 50))
         strip.show()

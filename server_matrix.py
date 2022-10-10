@@ -4,6 +4,14 @@ import time
 import json
 import os
 
+from luma.led_matrix.device import max7219
+from luma.core.interface.serial import spi, noop
+from luma.core.render import canvas
+from luma.core.virtual import viewport
+from luma.core.legacy import text, show_message
+from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
+
+
 HEADER = 64
 SERVER = "192.168.1.204"
 PORT = 5050
@@ -15,7 +23,16 @@ DC_MSG = "!DC"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
-os.system("sudo python matrix.py")
+serial = spi(port=0, device=0, gpio=noop())
+device = max7219(serial, cascaded=1, block_orientation=0,
+                    rotate=1, blocks_arranged_in_reverse_order=False)
+print("Created device")
+
+def matrix_show(msg):
+# print(msg)
+    show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.05)
+
+# os.system("sudo python matrix.py")
 
 def handle_client(conn, addr):
     print(f"Client - {addr} connected.")
@@ -40,18 +57,33 @@ def handle_client(conn, addr):
             # print(d)
             if cmd == '!sens':
                 d['sens'] = float(data)
+                with open('data.json', 'w') as file:
+                    json.dump(d,file)
+                matrix_show(f"Sensitivity set to {d['sens']}.")
+                os.system("sudo pm2 restart LED")
             elif cmd == '!bright':
                 d['brightness'] = int(float(data))
+                with open('data.json', 'w') as file:
+                    json.dump(d,file)
+                matrix_show(f"Brightness set to {d['brightness']}.")
+                os.system("sudo pm2 restart LED")
             elif cmd == '!status':
                 d['status'] = data
-                if data == 'off':
+                with open('data.json', 'w') as file:
+                    json.dump(d,file)
+                if data != 'on':
+                    os.system("sudo pm2 stop LED")
                     os.system("sudo python off.py")
+                    matrix_show("Status set to Off.")
+                else:
+                    matrix_show("Status set to On.")
+                    os.system("sudo pm2 restart LED")
             # print(d)
-            with open('data.json', 'w') as file:
-                json.dump(d,file)
+            # with open('data.json', 'w') as file:
+            #     json.dump(d,file)
             time.sleep(0.2)
 
-            os.system("sudo pm2 restart LED")
+            
 
     conn.close()
 
@@ -67,4 +99,5 @@ def start():
 if __name__ == "__main__":
 
     print("Server is starting....")
+    matrix_show("Hi Gokul!")
     start()
