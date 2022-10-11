@@ -16,6 +16,13 @@ import socket
 
 # client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+
+    # Image:
+    #     source: 'img.png'
+    #     size_hint_x: 0.4
+    #     allow_stretch: True
+    #     pos_hint: {'center_x':0.5, 'center_y':0.7}
+
 loader = """
 <Screen1>:    
     name: 's1'
@@ -97,7 +104,7 @@ class MusicLightsApp(MDApp):
         SERVER = "192.168.1.204"
         PORT = 5050
         self.client.connect((SERVER, PORT))
-        print("Connected to server!")
+        # print("Connected to server!")
 
         self.send_message("!cur status")
         self.status = self.recv_message()
@@ -106,9 +113,9 @@ class MusicLightsApp(MDApp):
         self.send_message("!cur sens")
         self.sens = float(self.recv_message())
 
-        print(self.status)
-        print(self.bright)
-        print(self.sens)
+        # print(self.status)
+        # print(self.bright)
+        # print(self.sens)
 
         self.sm.get_screen('s2').ids.bright.helper_text = f"Current: {self.bright}"
         self.sm.get_screen('s2').ids.sens.helper_text = f"Current: {self.sens}"
