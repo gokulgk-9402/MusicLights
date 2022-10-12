@@ -36,6 +36,14 @@ Added a 8x8 LED matrix display to display key changes and a welcome message. Sta
 #### October 12, 2022
 After many attempts at making the app, finally it worked out. I tred using adb to check the application logs, but yeah it was like looking for needle in a haystack and gave up. I added widgets to the application one by one and made minor changes each version to version. In the version `2.6` everything was almsot accourding to my plan with a few bugs and an image at the first screen missing. So, I went ahead and made version 2.7 with these changes.
 
+
+The apk of this application is there in this repository - `musiclights-v2.7.apk`. Only the final version's apk is included in this repository. 
+
 For now this project is over. Ofcourse there are improvements that are possible like improving application UI, better implementation of sensitivity, brightness, etc. But for now the basic function of the project is complete.
 
 Also for now, this application works only when the pi is in the same local network and the IP address of the pi is fixed as the pi itself is acting as a server and mobile the client. But this can be improved if the server runs in cloud and both pi and the mobile are clients to that server. And whatever mobile client sends can be sent by the server to the pi and the pi can execute the commands. 
+
+
+For queries, suggestions or anything feel free to contact me:
+Discord: gk#0633
+[Instagram](https://www.instagram.com/me_is_gokul/?hl=en)
