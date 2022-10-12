@@ -28,3 +28,12 @@ Today, I tried creating newer patterns. Tried making letters, but it was quite d
 
 #### October 5, 2022
 Got the USB mic for Raspberry Pi, so now I don't need to use socket programming to send decibel values to pi, instead record decibel values using that itself and control the lights. Also now I can use [pm2](https://pm2.keymetrics.io/) to make my code run indefinitely and run it automatically on startup of the pi. The codes inside the folder `mic-to-pi` are for that direct use of mic with pi. 
+
+
+#### October 8, 2022
+Added a 8x8 LED matrix display to display key changes and a welcome message. Started working on mobile app with kivy for this but it kept crashing when I tried to run in android. Then tried a simpler application which required me to send a "command version" of the changes in status, brightness, sensitivity of the lights.
+
+#### October 12, 2022
+After many attempts at making the app, finally it worked out. I tred using adb to check the application logs, but yeah it was like looking for needle in a haystack and gave up. I added widgets to the application one by one and made minor changes each version to version. In the version `2.6` everything was almsot accourding to my plan with a few bugs and an image at the first screen missing. So, I went ahead and made version 2.7 with these changes.
+
+For now this project is over. Ofcourse there are improvements that are possible like improving application UI, better implementation of sensitivity, brightness, etc. But for now the basic function of the project is complete.
