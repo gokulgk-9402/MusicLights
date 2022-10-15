@@ -43,7 +43,8 @@ For now this project is over. Ofcourse there are improvements that are possible 
 
 Also for now, this application works only when the pi is in the same local network and the IP address of the pi is fixed as the pi itself is acting as a server and mobile the client. But this can be improved if the server runs in cloud and both pi and the mobile are clients to that server. And whatever mobile client sends can be sent by the server to the pi and the pi can execute the commands. 
 
+Sample video [here](https://youtu.be/-N7nFq8CpDo) .
 
-For queries, suggestions or anything feel free to contact me:
-Discord: gk#0633
-[Instagram](https://www.instagram.com/me_is_gokul/?hl=en)
+For queries, suggestions or anything feel free to contact me:  
+Discord: gk#0633  
+[Instagram](https://www.instagram.com/me_is_gokul/?hl=en)  
