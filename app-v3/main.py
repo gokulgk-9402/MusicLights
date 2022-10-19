@@ -57,7 +57,7 @@ loader = """
         MDFloatLayout:
             MDBoxLayout:
                 orientation: 'horizontal'
-                size_hint: 0.8, None
+                size_hint: 0.85, None
                 height: '30sp'
                 pos_hint: {'center_x':0.5, 'center_y':0.9}
                 MDLabel:
@@ -68,22 +68,50 @@ loader = """
                 MDSwitch:
                     id: onoff
                     on_active: app.switchfun(self.active)
-            MDSlider:
-                id: bright
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint: 0.6, None
+                height: '20sp'
                 pos_hint: {'center_x':0.5, 'center_y':0.75}
-                min: 0
-                max: 255
-                step: 1
-                size_hint: 0.5, None
-                on_touch_up: app.sendfun('bright', bright.value)
-            MDSlider:
-                id: sens
-                pos_hint: {'center_x':0.5, 'center_y':0.65}
-                min: 0
-                max: 100
-                step: 1
-                size_hint: 0.5, None
-                on_touch_up: app.sendfun('sens', sens.value)
+                Image:
+                    source: 'bright-min.png'
+                    size_hint: None, None
+                    width: '70sp'
+                    allow_stretch: True
+                MDSlider:
+                    id: bright
+                    min: 0
+                    max: 255
+                    step: 1
+                    size_hint: 1, None
+                    on_touch_up: app.sendfun('bright', bright.value)
+                Image:
+                    source: 'bright-max.png'
+                    size_hint: None, None
+                    width: '70sp'
+                    allow_stretch: True
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint: 0.6, None
+                height: '20sp'
+                pos_hint: {'center_x':0.5, 'center_y':0.6}
+                Image:
+                    source: 'mic-max.png'
+                    size_hint: None, None
+                    width: '70sp'
+                    allow_stretch: True
+                MDSlider:
+                    id: sens
+                    min: 0
+                    max: 100
+                    step: 1
+                    size_hint: 1, None
+                    on_touch_up: app.sendfun('sens', sens.value)
+                Image:
+                    source: 'mic-min.png'
+                    size_hint: None, None
+                    width: '70sp'
+                    allow_stretch: True
 """
 
 Builder.load_string(loader)
