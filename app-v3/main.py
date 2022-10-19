@@ -54,25 +54,32 @@ loader = """
             title: "Music Lights Control"
             elevation: 4
             left_action_items: [["chevron-left", lambda x: app.back_button()]]
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 0.85, None
+            pos_hint: {'center_x':0.5}
+            height: '60sp'
+            MDLabel:
+                id: disp
+                text: "Off"
+                size_hint: 0.7, 1
+                font_style: 'H4'
+            MDSwitch:
+                id: onoff
+                pos_hint: {'center_y':0.5}
+                on_active: app.switchfun(self.active)
         MDFloatLayout:
+            canvas:
+                Color:
+                    rgb: 0, 0, 0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             MDBoxLayout:
                 orientation: 'horizontal'
-                size_hint: 0.85, None
-                height: '30sp'
-                pos_hint: {'center_x':0.5, 'center_y':0.9}
-                MDLabel:
-                    id: disp
-                    text: "Off"
-                    size_hint: 0.7, 1
-                    font_style: 'H4'
-                MDSwitch:
-                    id: onoff
-                    on_active: app.switchfun(self.active)
-            MDBoxLayout:
-                orientation: 'horizontal'
-                size_hint: 0.6, None
+                size_hint: 0.7, None
                 height: '20sp'
-                pos_hint: {'center_x':0.5, 'center_y':0.75}
+                pos_hint: {'center_x':0.5, 'center_y':0.85}
                 Image:
                     source: 'bright-min.png'
                     size_hint: None, None
@@ -92,9 +99,9 @@ loader = """
                     allow_stretch: True
             MDBoxLayout:
                 orientation: 'horizontal'
-                size_hint: 0.6, None
+                size_hint: 0.7, None
                 height: '20sp'
-                pos_hint: {'center_x':0.5, 'center_y':0.6}
+                pos_hint: {'center_x':0.5, 'center_y':0.7}
                 Image:
                     source: 'mic-max.png'
                     size_hint: None, None
