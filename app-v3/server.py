@@ -13,7 +13,9 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
 
 
 HEADER = 64
-SERVER = "192.168.1.204"
+# SERVER = "192.168.1.204"
+# SERVER = socket.gethostbyname(socket.gethostname())
+SERVER = '0.0.0.0'
 PORT = 5050
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
@@ -42,6 +44,8 @@ def handle_client(conn, addr):
     connected = True
     while connected:
         msg_length = conn.recv(HEADER).decode(FORMAT)
+        if not msg_length:
+            continue
         msg_length = int(msg_length)
         message = conn.recv(msg_length).decode(FORMAT)
 
@@ -95,8 +99,6 @@ def handle_client(conn, addr):
             #     json.dump(d,file)
             # time.sleep(0.2)
 
-            
-
     conn.close()
 
 def send_msg(conn, message):
@@ -118,7 +120,7 @@ def start():
         thread.start()
 
 if __name__ == "__main__":
-
-    print("Server is starting....")
+    print(socket.gethostname())
+    print(f"Server is starting in {SERVER}....")
     matrix_show("Hi Gokul!")
     start()
