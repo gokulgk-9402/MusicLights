@@ -69,50 +69,24 @@ loader = """
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            MDBoxLayout:
-                orientation: 'horizontal'
-                size_hint: 0.7, None
-                height: '20sp'
+            MDSlider:
+                id: bright
+                min: 0
+                max: 255
+                step: 1
+                size_hint: 0.6, None
                 pos_hint: {'center_x':0.5, 'center_y':0.85}
-                Image:
-                    source: 'bright-min.png'
-                    size_hint: None, None
-                    width: '70sp'
-                    allow_stretch: True
-                MDSlider:
-                    id: bright
-                    min: 0
-                    max: 255
-                    step: 1
-                    size_hint: 1, None
-                    on_touch_up: app.sendfun('bright', bright.value)
-                Image:
-                    source: 'bright-max.png'
-                    size_hint: None, None
-                    width: '70sp'
-                    allow_stretch: True
-            MDBoxLayout:
-                orientation: 'horizontal'
-                size_hint: 0.7, None
                 height: '20sp'
+                on_touch_up: app.sendfun('bright', bright.value)
+            MDSlider:
+                id: sens
+                min: 0
+                max: 100
+                step: 1
+                size_hint: 0.6, None
                 pos_hint: {'center_x':0.5, 'center_y':0.7}
-                Image:
-                    source: 'mic-max.png'
-                    size_hint: None, None
-                    width: '70sp'
-                    allow_stretch: True
-                MDSlider:
-                    id: sens
-                    min: 0
-                    max: 100
-                    step: 1
-                    size_hint: 1, None
-                    on_touch_up: app.sendfun('sens', sens.value)
-                Image:
-                    source: 'mic-min.png'
-                    size_hint: None, None
-                    width: '70sp'
-                    allow_stretch: True
+                height: '20sp'
+                on_touch_up: app.sendfun('sens', sens.value)
 """
 
 Builder.load_string(loader)

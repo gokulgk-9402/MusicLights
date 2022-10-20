@@ -45,6 +45,10 @@ Also for now, this application works only when the pi is in the same local netwo
 
 Sample video [here](https://youtu.be/-N7nFq8CpDo) .
 
+#### October 20, 2022
+Tried to add sliders in place of text fields for brightness and sensitivity. It was wokring fine in laptop, but when I made it into apk, it kept crashing as soon as it went to screen 2. I'm not able to figure out why. Screenshots of final version of app in folder `final-screenshots`. 
+
+
 For queries, suggestions or anything feel free to contact me:  
 Discord: gk#0633  
 [Instagram](https://www.instagram.com/me_is_gokul/?hl=en)  
